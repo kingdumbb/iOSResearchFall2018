@@ -27,10 +27,16 @@ class ViewController: UIViewController {
         
         
         let lucasNotations = DUAnnotations(coordinates: CLLocationCoordinate2DMake(37.218547, -93.285620), titles: "Building 1 ")
-        let lucasNotations2 = DUAnnotations(coordinates: CLLocationCoordinate2DMake(37.21864, -93.28563), titles: "Building2", contacts: "165123513251")
+        let SPF = DUAnnotations(coordinates: CLLocationCoordinate2DMake(37.21864, -93.28563), titles: "Building2", contacts: "165123513251")
+        let PER = DUAnnotations(coordinates: CLLocationCoordinate2DMake(30, -93), titles: "Pearsons")
+        let OLI = DUAnnotations(coordinates: CLLocationCoordinate2DMake(32, -90), titles: "Olin Library")
+        let BAY = DUAnnotations(coordinates: CLLocationCoordinate2DMake(31, -92), titles: "Bay Hall")
         
         myMap.addAnnotation(lucasNotations)
-        myMap.addAnnotation(lucasNotations2)
+        myMap.addAnnotation(SPF)
+        myMap.addAnnotation(PER)
+        myMap.addAnnotation(OLI)
+        myMap.addAnnotation(BAY)
         
     }
     
@@ -67,7 +73,7 @@ class ViewController: UIViewController {
 extension ViewController: MKMapViewDelegate{
     
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-        
+        print("works")
         if let customAnno: DUAnnotations = view.annotation as? DUAnnotations{
             // TODO
             if customAnno.contact != nil {

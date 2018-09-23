@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Uwd-B5-0qc">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -19,31 +20,52 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AE9-Dh-w3y">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                             </mapView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ntc-io-HdM">
-                                <rect key="frame" x="313" y="598" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ntc-io-HdM">
+                                <rect key="frame" x="259" y="601" width="100" height="30"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="DetailButton">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="segueButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rdz-3f-NKb"/>
                                     <segue destination="t6e-J8-SWE" kind="show" id="ow1-oF-IFI"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aiT-pQ-G6O">
+                                <rect key="frame" x="259" y="555" width="96" height="38"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="TableButton">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <segue destination="jzA-57-QK9" kind="show" id="kcb-5k-xUA"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="aiT-pQ-G6O" secondAttribute="trailing" constant="20" id="1l0-NK-jma"/>
+                            <constraint firstItem="aiT-pQ-G6O" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="491" id="A25-QY-mnp"/>
                             <constraint firstItem="AE9-Dh-w3y" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Ac9-7s-suC"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="AE9-Dh-w3y" secondAttribute="trailing" id="Gi0-8W-7iO"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="AE9-Dh-w3y" secondAttribute="bottom" id="HeR-Kk-SLh"/>
+                            <constraint firstItem="ntc-io-HdM" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="KEd-6v-AkT"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="AE9-Dh-w3y" secondAttribute="trailing" id="Wgr-XI-HYq"/>
+                            <constraint firstItem="ntc-io-HdM" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="537" id="Wvn-jZ-KGM"/>
+                            <constraint firstItem="aiT-pQ-G6O" firstAttribute="leading" secondItem="ntc-io-HdM" secondAttribute="leading" id="geb-ty-1JM"/>
                             <constraint firstItem="AE9-Dh-w3y" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="ik6-JP-g8H"/>
                             <constraint firstItem="AE9-Dh-w3y" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="j2c-MR-xtj"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="AE9-Dh-w3y" secondAttribute="bottom" id="lc9-Zr-bsq"/>
+                            <constraint firstItem="ntc-io-HdM" firstAttribute="top" secondItem="aiT-pQ-G6O" secondAttribute="bottom" constant="8" symbolic="YES" id="s2N-N3-w6O"/>
                             <constraint firstItem="AE9-Dh-w3y" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="seF-VS-kE7"/>
+                            <constraint firstItem="aiT-pQ-G6O" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="259" id="vri-4t-QO7"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" id="2hk-CV-50E"/>
                     <connections>
                         <outlet property="myMap" destination="AE9-Dh-w3y" id="F4u-eA-Hq1"/>
                         <segue destination="t6e-J8-SWE" kind="show" identifier="toSecondView" id="sAq-E0-agi"/>
@@ -51,7 +73,35 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-647" y="-40"/>
+            <point key="canvasLocation" x="292" y="-40.029985007496258"/>
+        </scene>
+        <!--Table View Controller-->
+        <scene sceneID="PXc-LC-W2U">
+            <objects>
+                <tableViewController id="jzA-57-QK9" customClass="tableViewController" customModule="introToSwift" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="hMR-YS-0Np">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellid" id="R0B-kf-2Uv">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="R0B-kf-2Uv" id="d63-J8-HMZ">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="jzA-57-QK9" id="Lhe-yS-SI6"/>
+                            <outlet property="delegate" destination="jzA-57-QK9" id="80E-1U-iUP"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cNy-z5-3TT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="434" y="692"/>
         </scene>
         <!--Details View Controller-->
         <scene sceneID="tAy-Pl-5Fu">
@@ -86,7 +136,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LUI-vb-Y5B" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="373.60000000000002" y="-40.029985007496258"/>
+            <point key="canvasLocation" x="1312.8" y="-40.029985007496258"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="HgN-0G-eJm">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Uwd-B5-0qc" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="1cp-vs-x2s">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="v44-WY-TjA"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oVS-xL-BFB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-647.20000000000005" y="-40.029985007496258"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

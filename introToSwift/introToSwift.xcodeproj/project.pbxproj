@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		648DFAAF21581BF70022FB84 /* tableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 648DFAAE21581BF70022FB84 /* tableViewController.swift */; };
+		648DFAB1215821210022FB84 /* dataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 648DFAB0215821210022FB84 /* dataSource.swift */; };
 		EE6C144C213C669100EA399C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE6C144B213C669100EA399C /* AppDelegate.swift */; };
 		EE6C144E213C669100EA399C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE6C144D213C669100EA399C /* ViewController.swift */; };
 		EE6C1451213C669100EA399C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE6C144F213C669100EA399C /* Main.storyboard */; };
@@ -17,6 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		648DFAAE21581BF70022FB84 /* tableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tableViewController.swift; sourceTree = "<group>"; };
+		648DFAB0215821210022FB84 /* dataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dataSource.swift; sourceTree = "<group>"; };
 		EE6C1448213C669100EA399C /* introToSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = introToSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE6C144B213C669100EA399C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EE6C144D213C669100EA399C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -61,6 +65,8 @@
 				EE6C1461213C810F00EA399C /* detailsViewController.swift */,
 				EE6C144B213C669100EA399C /* AppDelegate.swift */,
 				EE6C144D213C669100EA399C /* ViewController.swift */,
+				648DFAAE21581BF70022FB84 /* tableViewController.swift */,
+				648DFAB0215821210022FB84 /* dataSource.swift */,
 				EE6C145D213C6E7C00EA399C /* DUAnnotations.swift */,
 				EE6C144F213C669100EA399C /* Main.storyboard */,
 				EE6C1452213C669100EA399C /* Assets.xcassets */,
@@ -143,8 +149,10 @@
 			files = (
 				EE6C144E213C669100EA399C /* ViewController.swift in Sources */,
 				EE6C144C213C669100EA399C /* AppDelegate.swift in Sources */,
+				648DFAB1215821210022FB84 /* dataSource.swift in Sources */,
 				EE6C145E213C6E7C00EA399C /* DUAnnotations.swift in Sources */,
 				EE6C1462213C810F00EA399C /* detailsViewController.swift in Sources */,
+				648DFAAF21581BF70022FB84 /* tableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
