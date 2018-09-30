@@ -10,7 +10,7 @@ import UIKit
 import MapKit
 
 class ViewController: UIViewController {
-    
+    var treesArray = [DUAnnotations]()
     @IBAction func segueButton(_ sender: Any) {
         
         
@@ -21,22 +21,108 @@ class ViewController: UIViewController {
     var titlePH: String = ""
     var contactsPH: String = ""
     
+    
+    public func getJSON() {
+        let URLString: String = "http://mcs.drury.edu/deco/treeservice/index2.php"
+        let url = URL(string: URLString)
+        if let url = url{
+            let session = URLSession(configuration: .default)
+            let task = session.dataTask(with: url) { (data, response, error) in
+                print("in dataTask")
+                
+                if error == nil{
+                    print("error is nil")
+                    print(data!)
+                    self.parseJSON(with: data!)
+                    
+                } else{
+                    print("ERROR \(error!)")
+                    
+                    
+                }
+            }
+            task.resume()
+            
+          
+            
+            
+            
+        }
+        
+    }
+    public func parseJSON(with data: Data){
+        
+        let nameKey = "common_name"
+        let scientificNameKey = "scientific_name"
+        let latitudeKey = "latitude"
+        let longitudeKey = "longitude"
+        
+        do {
+        
+        let JSONarray = try JSONSerialization.jsonObject(with: data, options:[]) as! [Any]
+            for each in JSONarray{
+                
+                let JSONDictionary: Dictionary = each as! Dictionary <String, AnyObject>
+            
+                let titleString : String = JSONDictionary[nameKey] as! String
+                let scientificString : String = JSONDictionary[scientificNameKey] as! String
+                let latitudeString : Double = (JSONDictionary[latitudeKey]?.doubleValue)!
+                let longitudeString : Double = (JSONDictionary[longitudeKey]?.doubleValue)!
+           
+                
+                let duannotations = DUAnnotations(coordinates: CLLocationCoordinate2DMake(latitudeString, longitudeString), titles: titleString, contacts: scientificString)
+                self.treesArray.append(duannotations)
+                print(self.treesArray.count)
+                print("++++++++++++++++++++++++++++")
+                myMap.addAnnotation(duannotations)
+                
+               
+            }
+  
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        }
+        catch{
+            
+            print("something went wrong after calling the jsonparse func")
+            
+            
+        }
+        
+        }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         mapSetUp()
         
-        
-        let lucasNotations = DUAnnotations(coordinates: CLLocationCoordinate2DMake(37.218547, -93.285620), titles: "Building 1 ")
-        let SPF = DUAnnotations(coordinates: CLLocationCoordinate2DMake(37.21864, -93.28563), titles: "Building2", contacts: "165123513251")
-        let PER = DUAnnotations(coordinates: CLLocationCoordinate2DMake(30, -93), titles: "Pearsons")
-        let OLI = DUAnnotations(coordinates: CLLocationCoordinate2DMake(32, -90), titles: "Olin Library")
-        let BAY = DUAnnotations(coordinates: CLLocationCoordinate2DMake(31, -92), titles: "Bay Hall")
-        
-        myMap.addAnnotation(lucasNotations)
-        myMap.addAnnotation(SPF)
-        myMap.addAnnotation(PER)
-        myMap.addAnnotation(OLI)
-        myMap.addAnnotation(BAY)
+        getJSON()
+        print(self.treesArray.count)
+        myMap.addAnnotations(self.treesArray)
         
     }
     
@@ -73,7 +159,7 @@ class ViewController: UIViewController {
 extension ViewController: MKMapViewDelegate{
     
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-        print("works")
+        
         if let customAnno: DUAnnotations = view.annotation as? DUAnnotations{
             // TODO
             if customAnno.contact != nil {
