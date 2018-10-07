@@ -14,6 +14,7 @@ class DUAnnotations: NSObject, MKAnnotation {
     var coordinate: CLLocationCoordinate2D
     var title: String?
     var contact: String?
+    var image = UIImage(named: "tree")
      init(coordinates: CLLocationCoordinate2D, titles: String, contacts: String) {
             self.coordinate = coordinates
         self.title = titles

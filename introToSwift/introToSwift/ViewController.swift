@@ -8,14 +8,11 @@
 
 import UIKit
 import MapKit
+//import CoreLocation
 
-class ViewController: UIViewController {
+class ViewController: UIViewController{
     var treesArray = [DUAnnotations]()
-    @IBAction func segueButton(_ sender: Any) {
-        
-        
-        
-    }
+    
     @IBOutlet weak var myMap: MKMapView!
     
     var titlePH: String = ""
@@ -173,13 +170,64 @@ extension ViewController: MKMapViewDelegate{
             }
             
         }
+       
         
         
     }
     
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        var newAnnotationView: MKAnnotationView? // used to store the mkannotationview
+       
+        let id = "identifier"
+        if let annotation = annotation as? DUAnnotations { // making sure that annotation is of type DUannotation
+            if let dequeueView = self.myMap.dequeueReusableAnnotationView(withIdentifier: id) { // dequeuing the annptaions in the mapview object
+            
+                
+                newAnnotationView = dequeueView // assigning the dequeued view to the newAnnotationView
+                newAnnotationView?.annotation = annotation // making the newAnnotationView?.annotation equal our annotaions of type DUAnnotation
+                print("dequeue succeeded")
+            }
+            else{
+                newAnnotationView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: id) // create annotaions views if dequeue returned nothing
+                print("dequeue failed")
+            }
+            
+           
+            if let newAnnotationView = newAnnotationView{ // checking if newAnnotation if not nil
+                newAnnotationView.canShowCallout = true // used this method to allow showing the callout view
+                
+                let infoButton: UIButton = UIButton(type: .detailDisclosure) // creating a button with a type of detailDisc
+                newAnnotationView.rightCalloutAccessoryView = infoButton
+              
+                let subtitleLabel: UILabel = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
+                subtitleLabel.text = annotation.contact
+                subtitleLabel.font = subtitleLabel.font.withSize(15)
+             
+                newAnnotationView.detailCalloutAccessoryView = subtitleLabel
+                // TODO: add an image to the left callout view.
+                let imageView : UIImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
+                imageView.image = annotation.image
+                newAnnotationView.leftCalloutAccessoryView = imageView
+                
+            }
+           
+
+        
+        } // end of annotation type check
     
+        
+ 
+        return newAnnotationView
+    }
     
-    
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        if control == view.rightCalloutAccessoryView{
+             self.performSegue(withIdentifier: "toSecondView", sender: self)
+            
+            
+            
+        }
+    }
     
     
     
